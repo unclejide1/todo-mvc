@@ -11,6 +11,6 @@
     <title>Yahooo!!! from JSP</title>
 </head>
 <body>
-My first jsp!!!
+My first jsp!!! ${name}
 </body>
 </html>
