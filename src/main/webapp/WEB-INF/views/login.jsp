@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Date" %><%--
   Created by IntelliJ IDEA.
   User: njust
   Date: 30/07/2020
@@ -11,6 +11,10 @@
     <title>Yahooo!!! from JSP</title>
 </head>
 <body>
+<%
+    Date date = new Date();
+%>
+<div>Current date is <%=date%></div>
 My first jsp!!! ${name}
 </body>
 </html>
