@@ -11,10 +11,8 @@
     <title>Yahooo!!! from JSP</title>
 </head>
 <body>
-<%
-    Date date = new Date();
-%>
-<div>Current date is <%=date%></div>
-My first jsp!!! ${name}
+<form action="/todo_mvc_war_exploded/" method="POST">
+    Name : <input type="text" /> <input type="submit" value="login"/>
+</form>
 </body>
 </html>
