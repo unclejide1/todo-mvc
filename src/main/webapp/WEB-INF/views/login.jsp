@@ -12,7 +12,7 @@
 </head>
 <body>
 <p><font color="red">${errorMessage}</font></p>
-<form action="/todo_mvc_war_exploded/spring-mvc/login" method="POST">
+<form action="/todo_mvc_war_exploded/login" method="POST">
     <label>Name :</label> <input name="name" type="text" /> <label>Password :</label> <input name="password" type="password" /> <input type="submit" />
 </form>
 </body>
