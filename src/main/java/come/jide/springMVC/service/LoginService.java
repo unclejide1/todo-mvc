@@ -1,4 +1,4 @@
-package come.jide.springMVC;
+package come.jide.springMVC.service;
 
 import org.springframework.stereotype.Service;
 
