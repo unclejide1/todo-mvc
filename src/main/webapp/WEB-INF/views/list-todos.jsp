@@ -33,13 +33,18 @@
                 <td>${todo.desc}</td>
                 <td>${todo.targetDate}</td>
                 <td>${todo.done}</td>
+                <td>
+                    <a type="button" class="btn btn-warning"
+                       href="/todo_mvc_war_exploded/delete-todo?id=${todo.id}">Delete</a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <br/>
+    <a type="button" class="btn btn-primary" href="/todo_mvc_war_exploded/add-todo">Add</a>
 </div>
-<br/>
-<a type="button" class="btn btn-primary" href="/todo_mvc_war_exploded/add-todo">Add</a>
+
 <script
         src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
