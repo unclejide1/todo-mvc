@@ -12,6 +12,6 @@
     <title>Yahoo!!</title>
 </head>
 <body>
-Welcome ${name}
+Welcome ${name}, You are now authenticated.
 </body>
 </html>
