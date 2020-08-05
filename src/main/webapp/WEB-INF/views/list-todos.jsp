@@ -14,5 +14,7 @@
 <h1>Hi ${name}</h1>
 <h3>Your Todos</h3>
 ${todos}
+<br/>
+<a class="button" href="/todo_mvc_war_exploded/add-todo">Add</a>
 </body>
 </html>
