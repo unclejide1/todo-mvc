@@ -12,6 +12,7 @@
     <title>Yahoo!!</title>
 </head>
 <body>
-Welcome ${name}, You are now authenticated.
+Welcome ${name}, You are now authenticated. <br/>
+<a href="/todo_mvc_war_exploded/list-todos">Click here</a> to start maintaining your todo's.
 </body>
 </html>

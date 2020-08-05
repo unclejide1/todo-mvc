@@ -11,7 +11,8 @@
     <title>Todos for ${name}</title>
 </head>
 <body>
-<H1>Your Todos</H1>
+<h1>Hi ${name}</h1>
+<h3>Your Todos</h3>
 ${todos}
 </body>
 </html>
