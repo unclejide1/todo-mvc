@@ -25,6 +25,12 @@
             <form:errors path="desc" cssClass="text-warning" />
 
         </fieldset>
+        <fieldset class="form-group">
+            <form:label path="targetDate">Target Date</form:label>
+            <form:input path="targetDate" type="text" class="form-control"
+                        required="required" />
+            <form:errors path="targetDate" cssClass="text-warning" />
+        </fieldset>
         <button type="submit" class="btn btn-success">Submit</button>
     </form:form>
 </div>
@@ -32,7 +38,13 @@
         src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
         crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script>
+    $('#targetDate').datepicker({
+        format : 'dd/mm/yyyy'
+    });
+</script>
 </body>
 </html>
