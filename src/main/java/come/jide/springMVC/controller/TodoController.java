@@ -4,6 +4,8 @@ import come.jide.springMVC.model.Todo;
 import come.jide.springMVC.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -30,9 +32,18 @@ public class TodoController {
 
     @RequestMapping(value = "/list-todos", method = RequestMethod.GET)
     public String showLoginPage(ModelMap model, String name) {
-        String user = (String) model.get("name");
-        model.addAttribute("todos", service.retrieveTodos(user));
+        model.addAttribute("todos", service.retrieveTodos(getLoggedInUserName()));
         return "list-todos";
+    }
+
+    private String getLoggedInUserName() {
+        Object principal = SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+
+        if (principal instanceof UserDetails)
+            return ((UserDetails) principal).getUsername();
+
+        return principal.toString();
     }
 
     @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
@@ -47,7 +58,7 @@ public class TodoController {
         if (result.hasErrors())
             return "todo";
 
-        service.addTodo((String) model.get("name"), todo.getDesc(), new Date(),
+        service.addTodo(getLoggedInUserName(), todo.getDesc(), new Date(),
                 false);
         model.clear();// to prevent request parameter "name" to be passed
         return "redirect:/list-todos";
@@ -66,7 +77,7 @@ public class TodoController {
         if (result.hasErrors())
             return "todo";
 
-        todo.setUser("jide"); //TODO:Remove Hardcoding Later
+        todo.setUser(getLoggedInUserName());
         service.updateTodo(todo);
 
         model.clear();// to prevent request parameter "name" to be passed

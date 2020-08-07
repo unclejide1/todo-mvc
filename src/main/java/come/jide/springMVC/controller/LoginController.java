@@ -2,6 +2,8 @@ package come.jide.springMVC.controller;
 
 import come.jide.springMVC.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,27 +12,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@SessionAttributes("name")
 public class LoginController {
-
-    @Autowired
-    private LoginService loginService;
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String sayHello() {
-        return "login";
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String showWelcomePage(ModelMap model) {
+        model.put("name", getLoggedInUserName());
+        return "welcome";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String handleUserLogin(ModelMap model, @RequestParam String name,
-                                  @RequestParam String password) {
+    private String getLoggedInUserName() {
+        Object principal = SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
 
-        if (!loginService.validateUser(name, password)) {
-            model.put("errorMessage", "Invalid Credentials");
-            return "login";
-        }
+        if (principal instanceof UserDetails)
+            return ((UserDetails) principal).getUsername();
 
-        model.put("name", name);
-        return "welcome";
+        return principal.toString();
     }
 }
