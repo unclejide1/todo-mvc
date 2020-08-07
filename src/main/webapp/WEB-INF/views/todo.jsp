@@ -15,7 +15,9 @@
 <body>
 <div class="container">
 <h1>Add Todo</h1>
-    <form:form action="/todo_mvc_war_exploded/add-todo" method="post" commandName="todo">
+    <form:form  method="post" commandName="todo">
+        <form:hidden path="id"/>
+        <form:hidden path="user"/>
         <fieldset class="form-group">
             <form:label path="desc">Description</form:label>
             <form:input path="desc" type="text" class="form-control"
@@ -23,7 +25,7 @@
             <form:errors path="desc" cssClass="text-warning" />
 
         </fieldset>
-        <button type="submit" class="btn btn-success">Add</button>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form:form>
 </div>
 <script

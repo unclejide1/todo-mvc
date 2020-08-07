@@ -34,7 +34,9 @@
                 <td>${todo.targetDate}</td>
                 <td>${todo.done}</td>
                 <td>
-                    <a type="button" class="btn btn-warning"
+                    <a type="button" class="btn btn-primary"
+                       href="/todo_mvc_war_exploded/update-todo?id=${todo.id}">Edit</a>
+                    <a type="button" class="btn btn-danger"
                        href="/todo_mvc_war_exploded/delete-todo?id=${todo.id}">Delete</a>
                 </td>
             </tr>
